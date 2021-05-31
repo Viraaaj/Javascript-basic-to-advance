@@ -71,6 +71,9 @@ console.log("Value of x *= 10 :", x);
 x /= 10; // x = x / 10
 console.log("Value of x /= 10 :", x);
 
+x = x ** 2; // x square
+console.log("Value of x ** 2 :", x);
+
 x++;
 console.log("Value of x++:", x);
 
