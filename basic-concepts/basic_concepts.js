@@ -144,3 +144,16 @@ if (height) {
 } else {
   console.log("Its a bug");
 }
+
+//Equality operators
+let equalityNumber = 10;
+let equalityString = "10";
+
+let equalityNumber1 = 10;
+let equalityString1 = 10;
+
+console.log("Not strict:", equalityNumber == equalityString);
+console.log("Strict:", equalityNumber === equalityString);
+
+console.log("Not strict:", equalityNumber1 == equalityString1);
+console.log("Strict:", equalityNumber1 === equalityString1);
