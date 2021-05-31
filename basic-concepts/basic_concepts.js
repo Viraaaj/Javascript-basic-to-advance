@@ -81,3 +81,21 @@ x--;
 console.log("Value of x--:", x);
 
 console.log("Final value of x:", x);
+
+//Template literals
+const name = "john";
+const job = "developer";
+const birthYear = 1998;
+const year = 2021;
+
+const concat =
+  "I am " + name + ", a " + (year - birthYear) + " year old " + job + "!";
+console.log(concat);
+
+// we can replace above method by ES6 template liter
+const newName = `I am ${name}, a ${year - birthYear} year old ${job}!`;
+console.log("template literal:", newName);
+
+console.log(" move to \n new line ");
+console.log(` move to new line
+template literal`);
