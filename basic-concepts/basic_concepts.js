@@ -99,3 +99,26 @@ console.log("template literal:", newName);
 console.log(" move to \n new line ");
 console.log(` move to new line
 template literal`);
+
+// Type Conversion and Coercion
+// Type Conversion: When we manually convert type
+// Type Coercion: When JS manually convert type
+
+//Typer conversion
+const inputYear = "1991";
+console.log("inputYear", inputYear + 10); // it will log 199110 cause we take input as a string
+console.log("inputYear convversion", Number(inputYear) + 10); // it will print 2001 cause we converted string to number
+console.log("both cases", Number(inputYear), inputYear);
+
+console.log("NaN", Number("String"));
+console.log("Type of NaN:", typeof NaN);
+
+console.log("Convert number to string", String(50));
+
+// Type Coercion
+console.log(" I am " + 20 + " years old"); // Js will automatically convert
+console.log("using - in string", "10" - "3" - "2");
+console.log("using + in string", "10" + "3" + "2");
+console.log("using * in string", "10" * "3" * "2");
+console.log("using / in string", "10" / "3" / "2");
+console.log("using comparison in string", "10" > "1");
