@@ -162,3 +162,11 @@ console.log("Strict:", equalityNumber1 === equalityString1);
 console.log("1. OR: ||");
 console.log("2. AND: &&");
 console.log("3. NOT: !");
+
+// Ternery Operator
+console.log("Ternery operators = ? : ");
+let value = 20;
+
+value > 10
+  ? console.log("Ternery operator ?")
+  : console.log("Ternery operator :");
