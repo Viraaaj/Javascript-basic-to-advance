@@ -157,3 +157,8 @@ console.log("Strict:", equalityNumber === equalityString);
 
 console.log("Not strict:", equalityNumber1 == equalityString1);
 console.log("Strict:", equalityNumber1 === equalityString1);
+
+//Logical operators
+console.log("1. OR: ||");
+console.log("2. AND: &&");
+console.log("3. NOT: !");
