@@ -51,3 +51,30 @@ console.log("Assigned value of varVariable later:", varVariable);
 noVariable = "Hello";
 console.log("noVariable", noVariable);
 // we can declare a variable without a keyword also but this is not a good practise
+
+//Operators
+let x = 10;
+console.log("Initial value of x:", x);
+
+x = 10 + 5;
+console.log("Value of 10+5:", x);
+
+x += 10; // x = x + 10
+console.log("Value of x += 10 :", x);
+
+x -= 10; // x = x - 10
+console.log("Value of x -= 10 :", x);
+
+x *= 10; // x = x * 10
+console.log("Value of x *= 10 :", x);
+
+x /= 10; // x = x / 10
+console.log("Value of x /= 10 :", x);
+
+x++;
+console.log("Value of x++:", x);
+
+x--;
+console.log("Value of x--:", x);
+
+console.log("Final value of x:", x);
