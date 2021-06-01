@@ -170,3 +170,37 @@ let value = 20;
 value > 10
   ? console.log("Ternery operator ?")
   : console.log("Ternery operator :");
+
+//Switch Statements
+const day = "monday";
+
+switch (day) {
+  case "monday":
+    console.log("Day is monday");
+    break;
+
+  case "tuesday":
+    console.log("Day is tuesday");
+    break;
+
+  case "wednesday":
+  case "thursday":
+    console.log("Day is wednesday");
+    console.log("Day is thursday");
+    break;
+
+  case "friday":
+    console.log("Day is friday");
+    break;
+
+  case "saturday":
+    console.log("Day is saturday");
+    break;
+
+  case "sunday":
+    console.log("Day is sunday");
+    break;
+
+  default:
+    console.log("Not a valid day");
+}
