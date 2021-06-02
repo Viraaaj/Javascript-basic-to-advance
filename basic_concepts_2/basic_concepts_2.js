@@ -74,10 +74,42 @@ const fruitProcessor1 = function (apples, oranges) {
   const orangePieces = cutFruit(oranges);
 
   const juice1 = `Juice made with ${applePieces} apples and ${orangePieces} oranges`;
+  console.log("This line will execute");
   return juice1;
+  console.log("This line will not execute");
 };
 
 console.log(
   "function fruitProcessor1 wiyth function inside it:",
   fruitProcessor1(2, 3)
 );
+
+// If we add something after return statement then it will not execute.
+// If we want to display ot log something when function executed then we have to add that before return statement. (See Line number 77 and 79)
+
+//Coding challenge on functions
+const calcAverage = (score1, score2, score3) => {
+  return (score1 + score2 + score3) / 3;
+};
+
+const teamOneAverage = calcAverage(44, 23, 71);
+console.log("teamOneAverage", teamOneAverage);
+const teamTwoAverage = calcAverage(85, 54, 41);
+console.log("teamTwoAverage", teamTwoAverage);
+
+const checkWinner = function (teamOneScore, teamTwoScore) {
+  if (teamOneScore > teamTwoScore) {
+    const winner = `Team 1 wins ${teamOneScore} vs ${teamTwoScore}`;
+    return winner;
+  } else if (teamTwoScore > teamOneScore) {
+    const winner = `Team 2 wins ${teamOneScore} vs ${teamTwoScore} `;
+    return winner;
+  } else {
+    const winner = `Match Draw ${teamOneScore} vs ${teamTwoScore} `;
+    return winner;
+  }
+};
+
+console.log("Case 1:", checkWinner(teamOneAverage, teamTwoAverage));
+console.log("Case 2:", checkWinner(50, 20));
+console.log("Case 3:", checkWinner(10, 10));
