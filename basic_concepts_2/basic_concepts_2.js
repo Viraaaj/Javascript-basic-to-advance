@@ -63,3 +63,21 @@ const yearsuntilRetirement = (birthYear, firstName) => {
 
 console.log("arrow function multiple: ", yearsuntilRetirement(1990, "Jack"));
 console.log("arrow function multiple: ", yearsuntilRetirement(1980, "John"));
+
+//Function returns a function
+const cutFruit = function (fruit) {
+  return fruit * 4;
+};
+
+const fruitProcessor1 = function (apples, oranges) {
+  const applePieces = cutFruit(apples);
+  const orangePieces = cutFruit(oranges);
+
+  const juice1 = `Juice made with ${applePieces} apples and ${orangePieces} oranges`;
+  return juice1;
+};
+
+console.log(
+  "function fruitProcessor1 wiyth function inside it:",
+  fruitProcessor1(2, 3)
+);
