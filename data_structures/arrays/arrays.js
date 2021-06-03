@@ -44,3 +44,62 @@ console.log("Ages of particular element:", age1, age2, age3, ageLast);
 
 const ages = [age1, age2, age3, ageLast];
 console.log("New ages array:", ages);
+
+//Array methods / operations
+const arrayMethods = ["a", "b", "c", "d"];
+console.log("Before push: ", arrayMethods);
+
+arrayMethods.push("e");
+console.log("After push: ", arrayMethods);
+
+const newArrayPush = arrayMethods.push("f"); // If we want length we can store it in variable
+console.log("After push Length: ", newArrayPush, arrayMethods);
+//Push methods returns length of array
+
+//To add new element at start
+arrayMethods.unshift("element at start");
+console.log("Array unshift", arrayMethods);
+//Unshift methods returns length of array
+
+//To remove elements from array
+arrayMethods.pop(); // we dont need to pass any element inside pop as it will automatically pop out last element
+console.log("Pop method: ", arrayMethods);
+
+const popArray = arrayMethods.pop();
+console.log("Pop returns:", popArray, arrayMethods);
+//Pop methods returns poped elements of array if we store in variable
+
+//To remove first element in array
+arrayMethods.shift();
+console.log("Removing first element:", arrayMethods);
+
+//Check at which position certain element is
+console.log(
+  "Getting index of particular element b:",
+  arrayMethods.indexOf("b")
+);
+console.log(
+  "Getting index of particular element that is not present in array:",
+  arrayMethods.indexOf("yo")
+);
+
+//We can use includes rather than index of as it will tell us whether element is present in array or not (gives a boolean value)
+// rather than giving its index
+console.log("includes in array if b is present:", friends.includes("b"));
+console.log(
+  "includes in array if element is not present:",
+  friends.includes("yo")
+);
+
+//Includes method will strictly checkk the values (for eg. strings and numbers)
+arrayMethods.push(23);
+console.log(
+  "checking 23 as a string is present or not using includes:",
+  arrayMethods.includes("23"),
+  arrayMethods
+);
+console.log(
+  "checking 23 as a number is present or not using includes:",
+  arrayMethods.includes(23),
+  arrayMethods
+);
