@@ -103,3 +103,26 @@ console.log(
   arrayMethods.includes(23),
   arrayMethods
 );
+
+//Coding challenge
+const tipCalculator = function (bill) {
+  if (bill > 50 && bill < 300) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
+};
+
+const bills = [125, 555, 44];
+console.log("all bills:", bills);
+
+const tip1 = tipCalculator(bills[0]);
+const tip2 = tipCalculator(bills[1]);
+const tip3 = tipCalculator(bills[2]);
+console.log("all tips:", tip1, tip2, tip3);
+
+const tips = [tip1, tip2, tip3];
+console.log("all tips array:", tips);
+
+const totalBill = [bills[0] + tip1, bills[1] + tip2, bills[2] + tip3];
+console.log("Total bill (bill + tip):", totalBill.length, totalBill);
