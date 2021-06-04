@@ -114,3 +114,44 @@ while (diceNumber !== 6) {
     console.log("Dicenumber is 6");
   }
 }
+
+//Coding challenge
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totalBill = [];
+
+const calcTip = function (bill) {
+  if (bill > 50 && bill < 300) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
+};
+
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  //   console.log("Tip of bill", bills[i], ":", calcTip(bills[i]));
+
+  tips.push(tip);
+  totalBill.push(tip + bills[i]);
+
+  console.log(
+    `Bill amount is ${bills[i]} and tip applied on that bill is ${tips[i]}, hence total amount is ${totalBill[i]}`
+  );
+}
+
+console.log("Array of bills:", bills);
+console.log("Array of tips per bill:", tips);
+console.log("Array of total bill creating using push:", totalBill);
+
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  console.log("Sum of all total bills is:", sum);
+  return sum / arr.length;
+};
+
+console.log("Average of sum of total tips is:", calcAverage(tips));
+console.log("Average of sum of total bills is:", calcAverage(totalBill));
