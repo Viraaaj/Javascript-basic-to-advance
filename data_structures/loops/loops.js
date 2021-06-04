@@ -89,3 +89,28 @@ for (let exercise = 1; exercise < 4; exercise++) {
     console.log("Weight repetition:", rep, "Exercise no.:", exercise);
   }
 }
+
+//While loop
+for (let i = 1; i <= 10; i++) {
+  console.log("For loop:", i);
+}
+
+let i = 1;
+while (i <= 10) {
+  console.log("While loop:", i);
+  i++;
+}
+
+//Not incrementing example
+let diceNumber = Math.trunc(Math.random() * 6) + 1;
+console.log("Math.random():", Math.random()); // This function will generate any number between 0 to 1
+console.log("Random number:", diceNumber);
+
+while (diceNumber !== 6) {
+  console.log(`You rolled a ${diceNumber}`);
+  diceNumber = Math.trunc(Math.random() * 6 + 1);
+
+  if (diceNumber === 6) {
+    console.log("Dicenumber is 6");
+  }
+}
