@@ -68,3 +68,24 @@ for (let i = 0; i < statements.length; i++) {
   }
   console.log("continue and break:", statements[i], typeof statements[i]);
 }
+
+//Backward looping
+const backwardLoop = [
+  "jack",
+  "developer",
+  30,
+  ["friend1", "friend2", "friend3", "friend4"],
+];
+
+for (let i = backwardLoop.length - 1; i >= 0; i--) {
+  console.log("backwardLoop:", i, backwardLoop, backwardLoop[i]);
+}
+
+//Loop inside loop
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log("STARTING EXERCISE", exercise);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log("Weight repetition:", rep, "Exercise no.:", exercise);
+  }
+}
