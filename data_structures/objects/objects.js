@@ -98,3 +98,30 @@ console.log("Function inside object method 3:", objectMethods.age);
 //   );
 // }
 console.log(objectMethods.getSummery());
+
+//Coding challenge
+const markData = {
+  height: 1.69,
+  weight: 78,
+  name: "Mark",
+  calcBMI: function () {
+    return this.weight / this.height ** 2;
+  },
+};
+console.log("Mark's BMI:", markData.calcBMI());
+
+const johnData = {
+  height: 1.95,
+  weight: 92,
+  name: "john",
+  calcBMI: function () {
+    return this.weight / this.height ** 2;
+  },
+};
+console.log("John's BMI:", johnData.calcBMI());
+
+console.log(
+  `John's BMI ${johnData.calcBMI()} is ${
+    johnData.calcBMI() > markData.calcBMI() ? "higher" : "lower"
+  } than mark's BMI ${markData.calcBMI()}`
+);
