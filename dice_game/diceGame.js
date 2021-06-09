@@ -1,21 +1,26 @@
 "use strict";
 
 //Elements
-const playerOneScore = document.querySelector("#score--0");
-const playerTwoScore = document.querySelector("#score--1");
+const playerZero = document.querySelector(".player--0");
+const playerOne = document.querySelector(".player--1");
+const playerZeroScore = document.querySelector("#score--0");
+const playerOneScore = document.querySelector("#score--1");
 const diceElement = document.querySelector(".dice");
 const newGameButton = document.querySelector(".btn--new");
 const rollDiceButton = document.querySelector(".btn--roll");
 const holdDiceButton = document.querySelector(".btn--hold");
-const currentScoreOne = document.querySelector("#current--0");
-const currentScoreTwo = document.querySelector("#current--1");
+const playerZeroCurrentScore = document.querySelector("#current--0");
+const playerOneCurrentScore = document.querySelector("#current--1");
 
 //Starting values
+playerZeroScore.textContent = 0;
 playerOneScore.textContent = 0;
-playerTwoScore.textContent = 0;
 diceElement.classList.add("hidden");
 
 let currentScore = 0;
+
+const scores = [0, 0]; // position1: player1 score, position2: player2 score
+let activePlayer = 0;
 
 // rolling dice functionality
 rollDiceButton.addEventListener("click", function () {
@@ -47,9 +52,14 @@ rollDiceButton.addEventListener("click", function () {
   //If dice number 1 one change player
   if (dice !== 1) {
     currentScore = currentScore + dice;
-    currentScoreOne.textContent = currentScore;
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
   } else {
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
-    currentScoreOne.textContent = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+
+    playerZero.classList.toggle("player--active");
+    playerOne.classList.toggle("player--active");
   }
 });
