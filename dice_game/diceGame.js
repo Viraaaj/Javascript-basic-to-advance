@@ -19,7 +19,7 @@ diceElement.classList.add("hidden");
 
 let currentScore = 0;
 
-const scores = [0, 0]; // position1: player1 score, position2: player2 score
+let scores = [0, 0]; // position1: player1 score, position2: player2 score
 let activePlayer = 0;
 
 let isStillPlaying = true;
@@ -65,7 +65,7 @@ holdDiceButton.addEventListener("click", function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     //check winner
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 100) {
       isStillPlaying = false;
       document
         .querySelector(`.player--${activePlayer}`)
@@ -80,4 +80,22 @@ holdDiceButton.addEventListener("click", function () {
     }
     console.log(scores);
   }
+});
+
+newGameButton.addEventListener("click", function () {
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  isStillPlaying = true;
+
+  playerZeroScore.textContent = 0;
+  playerOneScore.textContent = 0;
+  document.getElementById("current--0").textContent = 0;
+  document.getElementById("current--1").textContent = 0;
+
+  playerZero.classList.add("player--active");
+  playerOne.classList.remove("player--active");
+  document.querySelector(".player--0").classList.remove("player--winner");
+  document.querySelector(".player--1").classList.remove("player--winner");
+  diceElement.classList.add("hidden");
 });
