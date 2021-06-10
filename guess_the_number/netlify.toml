@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/guess_the_number.html"
+  status = 200

@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/modals.html"
+  status = 200
