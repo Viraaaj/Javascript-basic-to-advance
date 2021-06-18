@@ -21,6 +21,43 @@ const restaurant = {
   order: function (menuIndex, tableIndex) {
     return [this.menu[menuIndex], this.tables[tableIndex]];
   },
+  openingHours: {
+    mon: {
+      open: 10,
+      close: 8,
+    },
+    tue: {
+      open: 11,
+      close: 9,
+    },
+    wed: {
+      open: 9,
+      close: 7,
+    },
+    thurs: {
+      open: 8,
+      close: 6,
+    },
+    fri: {
+      open: 0,
+      close: 24,
+    },
+  },
+
+  orderDelivery: function ({
+    address = "default",
+    mainIndex = 0,
+    startIndex = 1,
+    time = 100,
+  }) {
+    console.log(
+      "arguments with default values",
+      address,
+      mainIndex,
+      startIndex,
+      time
+    );
+  },
 };
 
 //destructuring categories
@@ -81,3 +118,93 @@ console.log(
 //setting default values to prevent undefined
 const [k = 1, l = 2, m = 3] = [4, 5];
 console.log("setting default values:", k, l, m);
+
+//destructuring objects
+//while destructuring objects the name of variables declared shuld be same as destructuring names
+const { name, openingHours, categories } = restaurant;
+console.log("destructuring objects:", name, openingHours, categories);
+
+// declaring variables with different names than object one
+const {
+  name: ownerName,
+  openingHours: openTime,
+  categories: category,
+} = restaurant;
+console.log(
+  "destructuring objects with different names:",
+  ownerName,
+  openTime,
+  category
+);
+
+//setting default values while destructuring objects
+const { locationBefore } = restaurant;
+console.log("location before setting default value:", locationBefore);
+const {
+  locationAfter = "location is India",
+  crowd: crowdNumber = ["defaultV1", "defaultV2"],
+} = restaurant;
+console.log(
+  "destructuring objects default values:",
+  locationAfter,
+  crowdNumber
+);
+
+//Mutating variables in objects
+let mutate1 = 100;
+let mutate2 = 200;
+console.log("Before Mutation in objects:", mutate1, mutate2);
+const mutateObject = { mutate1: 10, mutate2: 20, mutate3: 30 };
+
+// {mutate1, mutate2} = mutateObject; //This will give an error cause we cannot store values using "=" if we are using curly braces as JS will think that it is in block scope
+//solution
+({ mutate1, mutate2 } = mutateObject);
+console.log("After Mutation in objects:", mutate1, mutate2);
+
+//Nested objects
+const nestedObjects = {
+  name: "Nested object",
+  nestedOpeningHours: {
+    mon: {
+      open: 10,
+      close: 20,
+    },
+    tue: {
+      open: 10,
+      close: 8,
+    },
+  },
+};
+
+console.log("nestedObjects", nestedObjects);
+
+const { nestedOpeningHours } = nestedObjects;
+console.log("opening hours object:", nestedOpeningHours);
+
+const {
+  mon: { open, close },
+} = nestedOpeningHours;
+console.log("monday destructured open and close:", open, close);
+
+const {
+  mon: { open: op, close: cl },
+} = nestedOpeningHours;
+console.log(
+  "monday destructured open and close with different variables:",
+  op,
+  cl
+);
+
+//Getting object as a argument in function
+restaurant.orderDelivery({
+  time: 20,
+  address: "function object",
+  mainIndex: 1,
+  startIndex: 2,
+});
+
+restaurant.orderDelivery({
+  time: 20,
+  address: "function object 2",
+});
+//we can pass these same values in function which is declared inside object see restaurant object
