@@ -58,6 +58,10 @@ const restaurant = {
       time
     );
   },
+
+  spreadFunction: function (spread1, spread2, spread3) {
+    console.log(`three inputs are ${spread1}, ${spread2} and ${spread3}`);
+  },
 };
 
 //destructuring categories
@@ -208,3 +212,63 @@ restaurant.orderDelivery({
   address: "function object 2",
 });
 //we can pass these same values in function which is declared inside object see restaurant object
+
+//Spread Operator
+const spread = [1, 2, 3];
+console.log("Original array:", spread);
+
+const oldMethod = [4, 5, spread[0], spread[1], spread[2]];
+console.log("Old method to add elements in an array:", oldMethod);
+
+const addingArray = [6, 7, spread];
+console.log("Adding array inside array:", addingArray);
+
+const newArray = [8, 9, ...spread];
+console.log("Adding elements using spread operator:", newArray);
+
+console.log("each element of array:", ...newArray);
+
+const newMenu = [...restaurant.menu, "New menu 1"];
+console.log("Adding new menu using restaurant menu array:", newMenu);
+
+const allMenus = [...newMenu];
+console.log("Array which consist of all menu items:", allMenus);
+
+const tablesMenu = [...restaurant.menu, ...restaurant.tables];
+console.log("Joining arrays using spread operator:", tablesMenu);
+
+//Iterables: arrays, strings, maps, sets and not objects
+const string = "Iterateble";
+console.log("Original string:", string);
+const letters = [...string, "", "Done"];
+console.log("Each letter of string:", letters);
+
+// we cannot use spread operator like this cause spread operator will seperate the elements using commas hence can be used only in arrays or functions:
+// console.log(`${...string} hello`);
+
+//Spread operator in function
+restaurant.spreadFunction("1", "2", "3"); //calling function with static arguments
+
+const spreadFunctionArray = [
+  prompt("Enter first input"),
+  prompt("Enter second input"),
+  prompt("Enter third input"),
+];
+console.log("Three prompt inputs are:", spreadFunctionArray);
+
+restaurant.spreadFunction(...spreadFunctionArray); //calling function with prompt arguments
+
+//Es18 : spread operator also works on objects
+const newRestaurant = {
+  ...restaurant,
+  founder: "New data",
+};
+console.log("New object created using spread operator:", newRestaurant);
+
+//changing values of object
+const copyNewRestaurant = { ...newRestaurant };
+copyNewRestaurant.founder = "Copy of new data";
+console.log("changing original object data:", copyNewRestaurant);
+
+console.log("Original founder:", newRestaurant.founder);
+console.log("New founder:", copyNewRestaurant.founder);
