@@ -91,3 +91,82 @@ restaurant.orderPizza(
   "otherIngredient2",
   "otherIngredient3"
 );
+
+//Short circuiting
+
+// OR
+console.log("-----------------------OR--------------------------");
+// It will check if the value is truthy or not if first value is truthy it will log that immediately
+// if all values are falsy it will log last value in this case it doesn't matter if last value is falsy or truthy'
+console.log("Integer is truthy hence it will log", 12 || "Hello");
+console.log("string is truthy hence it will log", "Hello" || 12);
+console.log("string is truthy hence it will log", "" || "Hello");
+console.log("boolean is truthy hence it will log", true || 0);
+console.log(
+  "none of these are truthy but it will log last value coz of short circuiting",
+  undefined || null
+);
+console.log(
+  "It will log first truthy value",
+  undefined || null || 0 || "Hello" || 12 || ""
+);
+
+// using short circuiting instead of ternery operator
+// restaurant.x = 10;
+// restaurant.x = 0; //If we set value of x = 0  here then it will log not present as 0 is falsy
+
+const isPresent = restaurant.x ? restaurant.x : "Not present";
+console.log("Using ternery:", isPresent);
+
+const isPresentShort = restaurant.x || "Not present";
+console.log("Using short circuiting:", isPresentShort);
+
+// AND
+console.log("-----------------------AND--------------------------");
+
+console.log("First value is truthy:", 12 && null);
+console.log("First value is falsy:", null && "" && 12 && "Hello");
+
+//If the first value is truthy and all values are also truthy, then it will log the last value
+console.log("First value is truthy:", 12 && "Hello");
+console.log("First value is truthy:", 12 && "Hello" && true);
+
+//If the first value is falsy it will log first value
+console.log("First value is falsy:", "" && "Hello");
+console.log("First value is falsy:", undefined && null);
+
+//If the first value is truthy and there are some values which are falsy, then it will log the first falsy value
+console.log("First value is truthy:", 12 && "Hello" && undefined && null);
+
+//In simple words:
+console.log(
+  "If value is truthy => continue => if value is falsy => stops and log that value"
+);
+
+// Example
+function y() {
+  console.log("EXISTS");
+}
+// if (y) {
+//   console.log("Y exists if loop");
+//   y();
+// }
+y && y();
+
+//Nullish
+console.log(
+  "-----------------------NULLISH COALESCING--------------------------"
+);
+//Nullish will check if the value is nullish or not and if the value is nullish it will print error otherwise it will print the value.
+//Nullish = nulll, undefined
+
+// restaurant.z = 10;
+// restaurant.z = 0;
+// restaurant.z = null;
+// restaurant.z = undefined;
+
+const checkZ = restaurant.z || "Not present";
+console.log("Checking z: ", checkZ);
+
+const checkZNullish = restaurant.z ?? "Not present";
+console.log("Checking z using nullish: ", checkZNullish);
