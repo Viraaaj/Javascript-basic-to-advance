@@ -272,3 +272,66 @@ console.log("changing original object data:", copyNewRestaurant);
 
 console.log("Original founder:", newRestaurant.founder);
 console.log("New founder:", copyNewRestaurant.founder);
+
+//Enhanced object Literals
+
+const weekDays = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
+
+// with array elements
+//we can compute property names usingg this method
+const objectLiteralArray = {
+  [weekDays[0]]: {
+    open: 8,
+    close: 10,
+  },
+  [weekDays[5]]: {
+    open: 8,
+    close: 10,
+  },
+  [`day is ${2 + 3}`]: {
+    open: 8,
+    close: 10,
+  },
+};
+console.log("Template literals using array elements:", objectLiteralArray);
+
+// without array elements
+const objectLiteral = {
+  mon: {
+    open: 8,
+    close: 10,
+  },
+  tue: {
+    open: 8,
+    close: 10,
+  },
+  wed: {
+    open: 8,
+    close: 10,
+  },
+};
+
+const objectMain = {
+  name: "Literal",
+  time: 10,
+  // objectLiteral: objectLiteral, //old method
+  objectLiteral, //new ES6 method | it will automatically look for object and create one here with same name | This name should be same as object declared
+  oldFunction: function () {
+    console.log("Old method of using functions");
+  },
+
+  newMethod() {
+    console.log("New method of using functions");
+  },
+};
+objectMain.newMethod();
+console.log("objectLiteral", objectLiteral);
+console.log("objectMain", objectMain);
