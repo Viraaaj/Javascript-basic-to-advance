@@ -126,3 +126,24 @@ console.log("all tips array:", tips);
 
 const totalBill = [bills[0] + tip1, bills[1] + tip2, bills[2] + tip3];
 console.log("Total bill (bill + tip):", totalBill.length, totalBill);
+
+//Looping arrays: The for of loop
+//This loop is used if you want to display each and every item of an array
+const menu = ["a", "b", "c", "d", "e", "f"];
+
+//To get item
+for (const item of menu) {
+  console.log("Each item of array using for of loop:", item);
+}
+
+//To get item and index
+for (const [i, element] of menu.entries()) {
+  console.log(
+    "Each item with index of array using for of loop:",
+    i + 1,
+    ".",
+    element
+  );
+}
+
+console.log("menu.entries():", [...menu.entries()]);
