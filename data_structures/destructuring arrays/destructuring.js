@@ -274,7 +274,6 @@ console.log("Original founder:", newRestaurant.founder);
 console.log("New founder:", copyNewRestaurant.founder);
 
 //Enhanced object Literals
-
 const weekDays = [
   "monday",
   "tuesday",
@@ -335,3 +334,86 @@ const objectMain = {
 objectMain.newMethod();
 console.log("objectLiteral", objectLiteral);
 console.log("objectMain", objectMain);
+
+//Optional chaining
+
+// example to check if data exists without oprional chaining
+if (restaurant.openingHours && restaurant.openingHours.yoyo) {
+  console.log(
+    "This will not be executed as yoyo is ot present in object also it will not throw an error",
+    restaurant.openingHours.yoyo
+  );
+}
+// console.log(
+//   "If we log without condition then it will throw an error:",
+//   restaurant.openingHours.yoyo.open
+// );
+
+//With optional chaining
+console.log(
+  "Property which does not exists:",
+  restaurant.openingHours.yoyo?.open
+); //It will be executed after "?" and if that property exists then it will go ahed and run else if will log undefined
+console.log("Property which exists:", restaurant.openingHours.mon?.open);
+
+//Multiple optional chaining
+console.log("Multiple optional chaining:", restaurant.openingHours?.yoyo?.open);
+console.log(
+  "Multiple optional chaining exists:",
+  restaurant.openingHours?.mon?.open
+);
+
+//real example of optional chaining
+const allDays = ["Sun", "Mon", "Tue", "Wed", "thurs", "Fri", "Sat", "Sun"];
+
+const allHours = {
+  [allDays[0]]: {
+    open: 0, //If it is set to 0 then we will get opening time as undefined hence we used nullish coalscing operator beloww
+    close: 8,
+  },
+  [allDays[3]]: {
+    open: 10,
+    close: 8,
+  },
+  [allDays[5]]: {
+    open: 10,
+    close: 8,
+  },
+  [`day is ${1 + 2}`]: {
+    open: 10,
+    close: 8,
+  },
+};
+console.log("All hours: ", allHours);
+
+const optionalChaining = {
+  allHours,
+};
+console.log("optionalChaining", optionalChaining);
+
+for (const day of allDays) {
+  console.log("day is:", day);
+  const openingTime = optionalChaining.allHours[day]?.open ?? "Closed today";
+  console.log("Opening time is:", openingTime);
+}
+
+//Optional chaining methods
+console.log(restaurant.order?.(1, 2) ?? "Method does not exist");
+console.log(restaurant.orderError?.(1, 2) ?? "Method does not exist");
+
+//Optional chaining in arrays
+const users = [
+  {
+    name: "V",
+    email: "V@gmail.com",
+  },
+];
+console.log("User name is:", users[0]?.name ?? "Array is empty");
+console.log("Users name is:", users[2]?.name ?? "Array is empty");
+
+// old method for above example
+if (users.length > 0) {
+  console.log("user name is old method:", users[0].name);
+} else {
+  console.log("Array is empty");
+}
