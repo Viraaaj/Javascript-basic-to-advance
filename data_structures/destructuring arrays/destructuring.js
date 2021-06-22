@@ -417,3 +417,26 @@ if (users.length > 0) {
 } else {
   console.log("Array is empty");
 }
+
+//Looping objects Keys
+const keyProperty = Object.keys(allHours);
+console.log("objects keys property:", keyProperty); //Here we will get only keys
+for (const day of keyProperty) {
+  console.log("Looping objects keys:", day);
+}
+
+//Looping objects Keys
+const valueProperty = Object.values(allHours);
+console.log("objects value property:", valueProperty); //Here we will get only values of keys
+for (const day of valueProperty) {
+  console.log("Looping objects values:", day);
+}
+
+//Looping objects entries
+const entryProperty = Object.entries(allHours);
+console.log("objects entry property:", entryProperty); //Here we will get all the keys and their values in an array
+// we can use [key, value] also instead of destructuring value but then we need to call open and close by value.open and value.close
+for (const [key, { open, close }] of entryProperty) {
+  console.log("Looping objects entries:", key);
+  console.log(`on ${key} we open at ${open} and closes at ${close}`);
+}
