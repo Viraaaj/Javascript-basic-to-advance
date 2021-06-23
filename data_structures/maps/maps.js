@@ -56,3 +56,60 @@ console.log("Checking value of array is in map:", restaurant.get(arrayInMap));
 //Using querySelector in maps
 restaurant.set(document.querySelector("h1"), "Heading of page"); //h1 is present if we use anoter tag that we are not using in HTML then it will show key as null
 console.log("Afterr adding querySelector in map:", restaurant);
+
+//Other method to create map without using set
+console.log(
+  "----------------Other method to create map without using set--------------------------------"
+);
+
+const demo = new Map([
+  ["first key", "first value"],
+  ["second key", "second value"],
+  ["third key", "third value"],
+  [
+    ["key inside array1", "key inside array2"],
+    ["value inside array1", "value inside array2"],
+  ],
+]);
+console.log("Map created withou using set:", demo);
+
+const questions = new Map([
+  ["Question", "Which is the best language?"],
+  [1, "C"],
+  [2, "C++"],
+  [3, "JavaScript"],
+  ["correct answer", 3],
+  [true, "Correct Answer"],
+  [false, "Wrong Answer"],
+]);
+console.log("Questions map:", questions);
+
+console.log(questions.get("Question"));
+for (const [key, value] of questions) {
+  //   console.log("Arrayof key and value in questions map:", key, value);
+  if (typeof key === "number") {
+    console.log(`Answer ${key} : ${value}`);
+  }
+}
+
+const answer = Number(prompt("Enter Answer"));
+console.log("Answer is:", answer);
+
+// 1st method
+answer === questions.get("correct answer")
+  ? console.log(questions.get(true))
+  : console.log(questions.get(false));
+
+//   2nd method
+console.log(
+  "2nd method:",
+  questions.get(answer === questions.get("correct answer"))
+);
+
+//converting map to array
+console.log("Old questions map:", questions);
+console.log("Questions map converted to array:", [...questions]);
+console.log("map entries:", [...questions.entries()]);
+console.log("map values:", [...questions.values()]);
+console.log("map keys:", [...questions.keys()]);
+//We can write this methods as it is if we dont want them destructured in an array
