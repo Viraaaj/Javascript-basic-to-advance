@@ -92,7 +92,8 @@ for (const [key, value] of questions) {
   }
 }
 
-const answer = Number(prompt("Enter Answer"));
+// const answer = Number(prompt("Enter Answer"));
+const answer = 3;
 console.log("Answer is:", answer);
 
 // 1st method
@@ -113,3 +114,70 @@ console.log("map entries:", [...questions.entries()]);
 console.log("map values:", [...questions.values()]);
 console.log("map keys:", [...questions.keys()]);
 //We can write this methods as it is if we dont want them destructured in an array
+
+//Coding challenge
+console.log(
+  "-----------------------------CODING CHALLENGE---------------------------"
+);
+
+// Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+// 1. Create an array 'events' of the different game events that happened (no duplicates)
+// 2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+// 3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+// 4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+//       [FIRST HALF] 17: ⚽️ GOAL
+
+const gameEvents = new Map([
+  [17, "⚽️ GOAL"],
+  [36, "🔁 Substitution"],
+  [47, "⚽️ GOAL"],
+  [61, "🔁 Substitution"],
+  [64, "🔶 Yellow card"],
+  [69, "🔴 Red card"],
+  [70, "🔁 Substitution"],
+  [72, "🔁 Substitution"],
+  [76, "⚽️ GOAL"],
+  [80, "⚽️ GOAL"],
+  [92, "🔶 Yellow card"],
+]);
+console.log("all game events:", gameEvents);
+
+// 1
+const events = new Set(gameEvents.values());
+console.log("Different events without duplicates:", ...events);
+
+// 2
+gameEvents.delete(64);
+console.log("game events without key 64:", gameEvents);
+
+// 3
+console.log(
+  `An event happened, on average, every ${gameEvents.size / 90} minutes`
+);
+const timeOfEvent = [...gameEvents.keys()].pop();
+console.log("time of event:", timeOfEvent);
+console.log(
+  `An event happened, on average, every ${
+    timeOfEvent / gameEvents.size
+  } minutes`
+);
+
+// 4
+for (const [key, event] of gameEvents) {
+  //   console.log("event key is:", key, event);
+
+  console.log(
+    `${key > 45 ? "[FIRST HALF]" : "[SECOND HALF]"} ${key}: ${event}`
+  );
+}
+
+console.log("----------------ARRAY METHODS for referenec-------------------");
+const a = [1, 2, 3];
+a.push(4);
+console.log("push:", a);
+a.pop();
+console.log("pop:", a);
+a.shift();
+console.log("shift:", a);
+a.unshift(5);
+console.log("unshift:", a);
