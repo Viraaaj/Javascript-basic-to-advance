@@ -167,7 +167,7 @@ for (const [key, event] of gameEvents) {
   //   console.log("event key is:", key, event);
 
   console.log(
-    `${key > 45 ? "[FIRST HALF]" : "[SECOND HALF]"} ${key}: ${event}`
+    `${key < 45 ? "[FIRST HALF]" : "[SECOND HALF]"} ${key}: ${event}`
   );
 }
 
