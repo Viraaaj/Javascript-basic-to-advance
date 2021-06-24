@@ -210,3 +210,59 @@ const planesInLine = function (planes) {
 };
 planesInLine(5);
 planesInLine(2);
+
+console.log(
+  "------------------------CODING CHALLENGE 4------------------------"
+);
+
+// const convertVariables = function (variable) {
+//   if (variable.includes("_")) {
+//     const removeUnderscore = variable.split("_");
+//     // console.log("Array of words:", removeUnderscore);
+
+//     const arrayUppercase = [];
+//     for (const words of removeUnderscore) {
+//       // console.log("words are:", words);
+//       const wordsLowercase = words.toLowerCase();
+
+//       // const wordsUppercase =
+//       //   wordsLowercase[0].toUpperCase() + wordsLowercase.slice(1);
+//       // console.log("Words first letter uppercase:", wordsUppercase);
+
+//       arrayUppercase.push(wordsLowercase);
+//     }
+//     console.log("Array of uppercase converted words:", arrayUppercase[1]);
+
+//     const joinVariable = arrayUppercase.join("");
+//     console.log("Joined variable:", joinVariable);
+//   }
+// };
+// convertVariables("underscore_case");
+// convertVariables("first_name");
+// convertVariables("Some_Variable");
+// convertVariables("calculate_AGE");
+// convertVariables("delayed_departure");
+
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+
+const buttonClick = document.querySelector("button");
+buttonClick.addEventListener("click", function () {
+  const text = document.querySelector("textarea").value;
+  console.log("userinput text is:", text);
+
+  const splitUnderscore = text.split("\n");
+  console.log("After split:", splitUnderscore);
+
+  for (const [key, word] of splitUnderscore.entries()) {
+    const [firstWord, secondWord] = word.toLowerCase().trim().split("_");
+    console.log("Trimmed + split word:", firstWord, secondWord);
+
+    // const joinWord = splitWord.join("");
+    // console.log("Joined split array:", joinWord);
+    const output = `${firstWord}${
+      secondWord[0].toUpperCase() + secondWord.slice(1)
+    }`;
+    console.log(`${output.padEnd(20)}${"✅".repeat(key + 1)}`);
+  }
+});
