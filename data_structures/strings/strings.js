@@ -130,3 +130,83 @@ checkBaggage("I have Laptop, Food and Knife");
 checkBaggage("I have socks, food and camera");
 checkBaggage("I have snacks, gun and water");
 //It is a good practise to first coonvert a string into lowecase if we want to test some words, coz strings are case sensitive. Y !== y
+
+console.log(
+  "-------------------------Part 3----------------------------------------"
+);
+
+//Split: It will split the string provided by given input and stored in an array
+console.log("String split:", "a+very+nice+string".split("+"));
+
+const nameSplit = "name surname".split(" ");
+const [name, surname] = nameSplit; //destructuring
+console.log(
+  `name is: ${name} and surname is: ${surname} and array is: ${nameSplit}`
+);
+
+//Join: opposite of split | joins strings in array
+const newName = ["Mr", name, surname.toUpperCase()].join(" ");
+console.log("Join method:", newName);
+
+const a = ["a", "b", "c", "d", "e", "f"].join("xx");
+console.log(a);
+
+//Get a name and capitalize first letter of name and surname
+const capitalizeName = function (name) {
+  const nameSplit = name.split(" ");
+  console.log("User input:", nameSplit);
+
+  const allWords = [];
+
+  //method1
+  // for (let i = 0; i < nameSplit.length; i++) {
+  //   const capitalizeWord =
+  //     nameSplit[i][0].toUpperCase() + nameSplit[i].slice(1);
+
+  //   allWords.push(capitalizeWord);
+  // }
+
+  //Method2
+  for (const word of nameSplit) {
+    const capitalizeWord = word.replace(word[0], word[0].toUpperCase());
+    allWords.push(capitalizeWord);
+  }
+
+  console.log("Joined words:", allWords.join(" "));
+};
+
+capitalizeName("name surname");
+capitalizeName("john singham");
+
+//Padding: It will take 2 arguments first is lenggth and second is string that we want to add to fulfil that length
+const padding = "Go to gate no.23";
+console.log("padding start:", padding.padStart(25, "+"));
+console.log("padding end:", "Hello".padEnd(25, "+"));
+
+//credit card example
+const maskCreditCard = function (number) {
+  const numberToString = String(number);
+  // another method to convert number to string is number + ""
+
+  const lastFourDigits = numberToString.slice(-4);
+  console.log(
+    `Masked number of ${numberToString} is ${lastFourDigits.padStart(
+      numberToString.length,
+      "*"
+    )}`
+  );
+};
+maskCreditCard(123456789451);
+maskCreditCard(1234567888888888);
+maskCreditCard(2546852132558);
+maskCreditCard(15454554842328454);
+
+//repeat: repeating same string multiple times
+const repeatMethod = "Happy journey.... all the tourists!!";
+console.log("repeat method:", repeatMethod.repeat(5));
+
+const planesInLine = function (planes) {
+  console.log(`There are total ${planes} planes ${":)".repeat(planes)}`);
+};
+planesInLine(5);
+planesInLine(2);
